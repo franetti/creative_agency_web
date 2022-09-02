@@ -1,0 +1,33 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+:root{
+    /* --main-color:#3664e8; */
+    --main-color:coral;
+}
+
+:global *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+:global body{
+    /*font-family:"Poppins", sans-serif ;*/
+    background-color: white;    
+    /* height: 100vh; */
+    margin: 0;
+    padding: 0;
+    
+}
+
+.mainList{ 
+    scroll-behavior:smooth;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding-left: 10vw;
+    box-sizing: border-box;
+    overflow:auto;
+}

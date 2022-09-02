@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'NHaasGrotesk';
+    src: url(../fonts/NHaasGroteskTXPro-55Rg.ttf);
+}
+
+*{
+    font-family: 'NHaasGrotesk';    
+    scroll-behavior:smooth;
+}

@@ -1,0 +1,39 @@
+.spanContainer{
+    position: fixed;
+    bottom: 10%;
+    left: 77vw;
+    z-index: 1;
+    display: block;
+    letter-spacing: 2px;
+    font-size: 1.8vh;
+    color: #5f5f5f;
+    box-sizing: border-box;
+    mix-blend-mode: difference;
+}
+
+.asteriskContainer{
+    position: fixed;
+    mix-blend-mode: difference;
+    background-color: transparent;
+    color: #c4ced3 ;
+    bottom: 3vh;
+    left:6vw;
+    z-index: 1000;
+    scale: 1;
+    /* animation: animateRotate 5s linear infinite;                */
+}
+
+.asterisk{    
+    font-size:11vh;    
+}
+
+@keyframes animateRotate {
+    from{
+        transform: rotate(0deg);                     
+        transform-origin: center 33%;
+    }
+    to{
+        transform-origin: center 33%;
+        transform: rotate(360deg);
+    }
+}
