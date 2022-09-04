@@ -25,8 +25,6 @@ const Header = () =>{
       }     
     }
 
-    navbar.current.children.style.marginLeft = window.innerWidth < 1000 ? "40px":"0";
-
     return(
       setfirstNav(false)
     )

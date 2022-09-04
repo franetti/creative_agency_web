@@ -21,13 +21,6 @@ const Index = ({setHeightMain}) => {
         }
       })
 
-    const setWrapperTransform = async () => {
-        setTimeout( () => {
-            document.getElementsByClassName("tl-wrapper")[0].style.removeProperty("transform")
-            ScrollTrigger.refresh()
-        },900)            
-    }
-
     useLayoutEffect( () => 
     {       
         ScrollTrigger.enable(true);  
@@ -130,6 +123,13 @@ const Index = ({setHeightMain}) => {
     },[]) 
     
     useEffect( () => {
+        const setWrapperTransform = async () => {
+            setTimeout( () => {
+                document.getElementsByClassName("tl-wrapper")[0].style.removeProperty("transform")
+                ScrollTrigger.refresh()
+            },900)            
+        }
+
         setWrapperTransform()
     })
 

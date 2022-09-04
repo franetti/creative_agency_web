@@ -6,16 +6,34 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import {CursorContext} from "../context/cursorContext"
 
+// const Title = props =>(
+//     <h1
+//         css={{
+//     font-family: "Space Grotesk", sans-serif;
+//     font-size: ${ (props) => (props.fontSize)};
+//     font-weight: 300;
+//     text-transform:lowercase;
+//     z-index: 1;
+//     line-height: 1.1;  
+//     text-transform: uppercase;
+//     cursor:pointer;
+//         }} 
+//     >{...props}</h1>
+// )
 
 const Title = styled.h1`
     font-family: "Space Grotesk", sans-serif;
-    font-size: ${ (props) => (props.fontSize)};
+    //font-size: ${ (props) => (props.fontSize)};
     font-weight: 300;
     text-transform:lowercase;
     z-index: 1;
     line-height: 1.1;  
     text-transform: uppercase;
     cursor:pointer;
+    font-size: 8.5vw;
+    @media (max-width: 800px) {
+        font-size: 13vw;
+    }
     ${(props) => props.animate ? 
         ( "position:absolute; z-index:3; color:black;top:0; clip-path:inset( 0 100% 0 0);" ) 
         :
@@ -108,22 +126,8 @@ const ProjectItem = ({project, itemIndex}) => {
                 onMouseEnter={handleMouseEnter}                
                 onMouseLeave={handleMouseLeave}                                                                  
             >
-                <Title 
-                    css={css`
-                        font-size: 8.5vw;
-                        @media (max-width: 800px) {
-                            font-size: 13vw;
-                        }`}
-                >{title}</Title>
-                <Title 
-                    css={css`
-                        font-size: 8.5vw;
-                        @media (max-width: 800px) {
-                            font-size: 13vw;
-                    }`}
-                    ref={revealTitle} 
-                    animate={true}
-                >{title}</Title>
+                <Title>{title}</Title>
+                <Title ref={revealTitle} animate={true}>{title}</Title>
             </div>            
             <img 
                 className={styles.menuImg}                 

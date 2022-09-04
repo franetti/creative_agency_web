@@ -19,6 +19,7 @@
     color:#c4ced3;
 }
 
+
 .logo{
     margin-left:0;
     flex:0.5;
@@ -29,9 +30,9 @@
     /* `${window.innerWidth < 1000 ? "40px":"0"}` */
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
     .logo {
-        margin-left:40px;
+        margin-left:40px;        
     }
     .navh1Margin{
         margin-right: 40px;
@@ -60,7 +61,7 @@
     display:flex;
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
     .navh1Hide {
         display:none;
     }
