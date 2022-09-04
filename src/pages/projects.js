@@ -19,14 +19,14 @@ const IndexPage = () => {
   },[])
 
   return (
-    <CursorManager>
-      <Layout >          
+    <Layout >          
+      <CursorManager>
         <div ref={projectsPage} >
           <IndexView />
         </div>
         <Transition timeline={tl} color={"#171717"}/>      
-      </Layout>
-    </CursorManager> 
+      </CursorManager>
+    </Layout>    
   )  
 }
 
