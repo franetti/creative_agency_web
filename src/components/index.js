@@ -33,7 +33,7 @@ const Index = ({setHeightMain}) => {
         const skewSetter = gsap.quickSetter(arrLi, "skewX", "deg");        
         const clamp = gsap.utils.clamp(-20, 20);   
         
-        setHeightMain(widthSpin+(wrapperContainer.offsetWidth/1.5))         
+        setHeightMain(widthSpin+(wrapperContainer.offsetWidth/1.6))         
 
         gsap.set(arrLi, {transformOrigin: "center center", force3D: true});
         for(var i=0; i <arrLi.length-1; i++)

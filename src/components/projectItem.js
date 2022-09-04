@@ -3,23 +3,7 @@ import gsap from 'gsap'
 import * as  styles from './projectItem.module.css'
 import {Hash} from 'react-feather'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 import {CursorContext} from "../context/cursorContext"
-
-// const Title = props =>(
-//     <h1
-//         css={{
-//     font-family: "Space Grotesk", sans-serif;
-//     font-size: ${ (props) => (props.fontSize)};
-//     font-weight: 300;
-//     text-transform:lowercase;
-//     z-index: 1;
-//     line-height: 1.1;  
-//     text-transform: uppercase;
-//     cursor:pointer;
-//         }} 
-//     >{...props}</h1>
-// )
 
 const Title = styled.h1`
     font-family: "Space Grotesk", sans-serif;
