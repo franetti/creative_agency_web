@@ -1,62 +1,63 @@
 import React,{useRef, useLayoutEffect, useState} from 'react'
-import { useEffect } from 'react';
 import useLocalStorage from "use-local-storage";
 import * as  styles from './footer.module.css'
 import gsap from 'gsap'
-import { Repeat } from 'react-feather';
-
-
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-var keys = {37: 1, 38: 1, 39: 1, 40: 1};
-
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
-  }
-}
-
-// modern Chrome requires { passive: false } when adding event
-var supportsPassive = false;
-try {
-  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-    get: function () { supportsPassive = true; } 
-  }));
-} catch(e) {}
-
-var wheelOpt = supportsPassive ? { passive: false } : false;
-var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
-
-// call this to Disable
-function disableScroll() {
-  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-}
-
-// call this to Enable
-function enableScroll() {
-  window.removeEventListener('DOMMouseScroll', preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
-  window.removeEventListener('touchmove', preventDefault, wheelOpt);
-  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-}
     
 export const Transition = ({timeline,color }) => {
 
-    const [firstLoading,setFirstLoading] = useLocalStorage("firstLoading",true)    
-    //const [firstLoading,setFirstLoading] = useState(true);
+    const [firstLoading,setFirstLoading] = useLocalStorage("firstLoading",true)        
     const trans = useRef(null);
     const asterisk = useRef(null);
 
+
+
     useLayoutEffect( () => 
     {      
+
+      // left: 37, up: 38, right: 39, down: 40,
+      // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+      var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+      function preventDefault(e) {
+        e.preventDefault();
+      }
+
+      function preventDefaultForScrollKeys(e) {
+        if (keys[e.keyCode]) {
+          preventDefault(e);
+          return false;
+        }
+      }
+
+      // modern Chrome requires { passive: false } when adding event
+      var supportsPassive = false;
+      try {
+        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+          get: function () { supportsPassive = true; } 
+        }));
+      } catch(e) {}
+
+      var wheelOpt = supportsPassive ? { passive: false } : false;
+      var wheelEvent = 'onwheel' in document.createElement('div') ?  'wheel' : 'mousewheel'  
+      
+
+      // call this to Disable
+      function disableScroll() {
+        window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+        window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+        window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+        window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+      }
+
+      // call this to Enable
+      function enableScroll() {
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+        window.removeEventListener('touchmove', preventDefault, wheelOpt);
+        window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+      }
+
+
       disableScroll()                  
       if(firstLoading)
       {                                  
@@ -91,7 +92,7 @@ export const Transition = ({timeline,color }) => {
         
         setTimeout(()=>{
           enableScroll()             
-          },3200)  
+          },3500)  
       }  
       else
       { 
@@ -112,8 +113,6 @@ export const Transition = ({timeline,color }) => {
           },1000)  
       }       
       
- 
-
       return(
         setFirstLoading(false)
       )

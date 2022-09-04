@@ -3,12 +3,13 @@ import gsap from 'gsap'
 import * as  styles from './projectItem.module.css'
 import {Hash} from 'react-feather'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import {CursorContext} from "../context/cursorContext"
 
 
 const Title = styled.h1`
     font-family: "Space Grotesk", sans-serif;
-    font-size: ${window.innerWidth < 800 ? "13vw":"8.5vw" };
+    font-size: ${ (props) => (props.fontSize)};
     font-weight: 300;
     text-transform:lowercase;
     z-index: 1;
@@ -107,8 +108,22 @@ const ProjectItem = ({project, itemIndex}) => {
                 onMouseEnter={handleMouseEnter}                
                 onMouseLeave={handleMouseLeave}                                                                  
             >
-                <Title>{title}</Title>
-                <Title ref={revealTitle} animate={true}>{title}</Title>
+                <Title 
+                    css={css`
+                        font-size: 8.5vw;
+                        @media (max-width: 800px) {
+                            font-size: 13vw;
+                        }`}
+                >{title}</Title>
+                <Title 
+                    css={css`
+                        font-size: 8.5vw;
+                        @media (max-width: 800px) {
+                            font-size: 13vw;
+                    }`}
+                    ref={revealTitle} 
+                    animate={true}
+                >{title}</Title>
             </div>            
             <img 
                 className={styles.menuImg}                 

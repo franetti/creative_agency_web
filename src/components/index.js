@@ -1,9 +1,8 @@
-import React,{useState,useRef , useEffect,useLayoutEffect} from 'react'
+import React,{useRef , useEffect,useLayoutEffect} from 'react'
 import * as  styles from './scrollItem.module.css'
 import * as  styles2 from './projectItem.module.css'
 import {Hash} from 'react-feather'
 import ScrollItem from "../components/scrollItem"
-import ProjectItem from './projectItem';
 import {pageData} from "../data"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -158,7 +157,7 @@ const Index = ({setHeightMain}) => {
                     }}
                 >                    
                     {pageData.map( (project, index) => (
-                        <li className={styles.li_item} ref={containerRef} style={{marginRight:`${window.innerWidth < 1050 ? "23.5vw":"0"}`}}>
+                        <li className={styles.li_item} ref={containerRef} >
                             <ScrollItem key={project.url} project={project} /> 
                             <div style={{position:"absolute", bottom:"18%", left:"-20%", display:"flex",pointerEvents:"none" }}>                               
                                 <div style={{display:"flex",fontSize:"8vw"}}>                                                            
@@ -168,7 +167,7 @@ const Index = ({setHeightMain}) => {
                                     }                                                                           
                                 </div>
                                 
-                                <div style={{display:`${window.innerWidth < 800 ? "none" : "flex"}`,fontSize:"4rem"}}>          
+                                <div  className={styles.containerList} >          
                                     <div 
                                         className={`title${index}`} 
                                         style={{

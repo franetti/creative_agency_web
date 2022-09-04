@@ -39,7 +39,9 @@ const IndexPage = () =>
         }
       }
     });        
-   console.log(heightHero)
+    
+    hero.current.style.width = window.innerWidth < 800 ? "90%":"50%" ;
+
     return () => {
         ScrollTrigger.disable();    
         ScrollTrigger.clearScrollMemory();
@@ -47,14 +49,14 @@ const IndexPage = () =>
   },[])
 
   return (       
-    <>
-    <CursorManager>    
+    <>    
       <Layout  >  
+        <CursorManager>   
         <div style={{ backgroundColor:"#171717", color:"#c4ced3 !important" , height:`${heightMain+heightHero}px`}}>
             <div
                 ref={hero}
                 style={{
-                    width:`${window.innerWidth < 800 ? "90%":"50%" }`,                       
+                    // width:`${window.innerWidth < 800 ? "90%":"50%" }`,                       
                     margin:"auto",
                     paddingTop:"28vh",
                     paddingLeft:"2.9vw"
@@ -75,8 +77,8 @@ const IndexPage = () =>
             <Index setHeightMain={setHeightMain}/>
           </div>         
          <Transition timeline={tl} color={"#f5f5f5"}/> 
+         </CursorManager>  
       </Layout>    
-    </CursorManager>   
     </>      
   )
 }

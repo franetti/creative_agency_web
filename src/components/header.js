@@ -10,13 +10,13 @@ import {useRef,useLayoutEffect,useContext} from 'react'
 import useLocalStorage from "use-local-storage";
 import {CursorContext} from "../context/cursorContext"
 
-const Header = ({ siteTitle }) =>{
+const Header = () =>{
   const [firstNav,setfirstNav] = useLocalStorage("firstNav",true)
   const navbar = useRef()
   const {setRadio,setAnimation} = useContext(CursorContext)     
 
   useLayoutEffect( () =>
-  {          
+  {            
     if (firstNav) 
     {
       const arrNav = navbar.current.children          
@@ -24,10 +24,13 @@ const Header = ({ siteTitle }) =>{
         gsap.from(arrNav[i],{x:-10, opacity:0, ease:"power3.inOut", delay:1})
       }     
     }
+
+    navbar.current.children.style.marginLeft = window.innerWidth < 1000 ? "40px":"0";
+
     return(
       setfirstNav(false)
     )
-  },[])
+  },[])  
 
   const handleMouseEnter = () => { 
     setAnimation(true)
@@ -46,15 +49,7 @@ const Header = ({ siteTitle }) =>{
         className={styles.headerContainer}
         ref={navbar}
       >
-          <div             
-            style={{
-            marginLeft:`${window.innerWidth < 1000 ? "40px":"0"}`,
-            flex:"0.5",
-            display:"flex",
-            alignItems:"end",
-            justifyContent:"center",
-            fontSize:"30px"        
-            }}>
+          <div className={styles.logo} >
               <AniLink 
                 style={{display:"flex"}}
                 swipe  
@@ -85,9 +80,8 @@ const Header = ({ siteTitle }) =>{
             </div>
           </div>
           <div style={{flex:"1", display:"flex"}} >
-            <AniLink to="/" swipe  direction="up" duration={1} className={styles.navh1} style={{display:`${window.innerWidth < 900 ? "none":"flex"}`}} >COLLAB</AniLink>
-            <AniLink to="/projects" swipe  direction="down" className={styles.navh1} style={{marginRight:`${window.innerWidth < 1000 ? "40px":"0"}`, display:`${window.innerWidth < 900 ? "none":"flex"}`}}
-                >STUDIO</AniLink>
+            <AniLink to="/" swipe  direction="up" duration={1} className={styles.navh1 + " " +styles.navh1Hide}>COLLAB</AniLink>
+            <AniLink to="/projects" swipe  direction="down" className={styles.navh1 + " " +styles.navh1Hide + " " + styles.navh1Margin}>STUDIO</AniLink>
           </div>    
       </header>
     )
@@ -100,5 +94,6 @@ const Header = ({ siteTitle }) =>{
 // Header.defaultProps = {
 //   siteTitle: ``,
 // }
+
 
 export default Header

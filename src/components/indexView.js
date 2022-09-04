@@ -1,6 +1,4 @@
-import React, {useState, useRef, useEffect,useLayoutEffect, useContext} from "react"
-// import { useStaticQuery, graphql } from "gatsby"
-import Helmet from 'react-helmet' //para head
+import React, {useState, useRef, useLayoutEffect, useContext} from "react"
 import {CursorContext} from "../context/cursorContext"
 import * as  styles from './indexView.module.css'
 import {pageData} from "../data"
